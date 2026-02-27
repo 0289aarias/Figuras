@@ -15,37 +15,30 @@ do {
       double x = teclado.nextDouble();
       System.out.print ("Introduzca la coordenada y del centro: ");
       double y = teclado.nextDouble();
-   switch (opción)
-	   {  case 1:
-	         System.out.print ("Introduzca el lado 1 del triángulo: ");
-        	 double lado1 = teclado.nextDouble();
-	         System.out.print ("Introduzca el lado 2 del triángulo: ");
-        	 double lado2 = teclado.nextDouble();
-        	 System.out.print ("Introduzca el lado 3 del triángulo: ");
-        	 double lado3 = teclado.nextDouble();
-        	 Triángulo t = new Triángulo(x, y, Color.red, lado1, lado2, lado3);
-        	 System.out.println ("El perímetro es " + t.perímetro());
-        	 System.out.println ("El área es " + t.área());
-        	 break;
-         case 2:
-	         System.out.print ("Introduzca la base del rectángulo: ");
-        	 double base = teclado.nextDouble();
-	         System.out.print ("Introduzca la altura del rectángulo: ");
-        	 double altura = teclado.nextDouble();
-        	 Rectángulo r = new Rectángulo(x, y, Color.red, base, altura);
-        	 System.out.println ("El perímetro es " + r.perímetro());
-        	 System.out.println ("El área es " + r.área());
-        	 break;
-         case 3:
-	         System.out.print ("Introduzca el lado del cuadrado: ");
-        	 double lado = teclado.nextDouble();
-	         Cuadrado c = new Cuadrado(x, y, Color.red, lado);
-	         System.out.println ("El perímetro es " + c.perímetro());
-	         System.out.println ("El área es " + c.área());
-	         break;
-        }
-   }
-}while (opción != 4); 
+
+   switch (opción) {
+    case 1 -> {
+        System.out.print("Lado 1: "); double l1 = teclado.nextDouble();
+        System.out.print("Lado 2: "); double l2 = teclado.nextDouble();
+        System.out.print("Lado 3: "); double l3 = teclado.nextDouble();
+        Triángulo t = new Triángulo(x, y, Color.red, l1, l2, l3);
+        mostrarDatos(t.perímetro(), t.área());
+    }
+    case 2 -> {
+        System.out.print("Base: "); double b = teclado.nextDouble();
+        System.out.print("Altura: "); double h = teclado.nextDouble();
+        Rectángulo r = new Rectángulo(x, y, Color.red, b, h);
+        mostrarDatos(r.perímetro(), r.área());
+    }
+    case 3 -> {
+        System.out.print("Lado: "); double l = teclado.nextDouble();
+        Cuadrado c = new Cuadrado(x, y, Color.red, l);
+        mostrarDatos(c.perímetro(), c.área());
+    }
+}
+}
+
+}while (opción != 4);
 teclado.close();
 }
 
@@ -64,4 +57,11 @@ do {
    } while (opción < 1 || opción > 4);
 return opción;
 }
+
+private static void mostrarDatos(double p, double a) {
+    System.out.println("El perímetro es " + p);
+    System.out.println("El área es " + a);
 }
+}
+
+
